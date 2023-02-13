@@ -5,7 +5,7 @@ import { Work } from "../Cards/Work";
 import { useSprings, animated, interpolate } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
 import React from "react";
-import {isBrowser, isMobile} from 'react-device-detect';
+import {isMobile} from 'react-device-detect';
 
 export const to = (i: number) => {
     return {
@@ -99,8 +99,6 @@ export function Deck() {
     );
     return (
       <>
-        {isBrowser && "Browser"}
-        {isMobile && "Mobile"}
         <div className="transition-all animate-appear opacity-0 anime-forward absolute w-full h-full flex justify-center items-center">👋</div>
         {props.map(({ x, rot, scale, y }, i) => (
           <animated.div
