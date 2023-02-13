@@ -14,8 +14,7 @@
   height: 65vh;
   touch-action: none;
   background-color: white;
-
   will-change: transform;
-  border-radius: 10px;
+  border-radius: 32px;
   box-shadow: 0 12.5px 100px -10px rgba(50, 50, 73, 0.3), 0 10px 10px -10px rgba(50, 50, 73, 0.2);
 }
