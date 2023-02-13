@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Contact } from "../Cards/Contact";
 import { Home } from "../Cards/Home";
 import { Work } from "../Cards/Work";

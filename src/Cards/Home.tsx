@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import CardProps from ".";
 import memoji from "./memoji.jpeg"
 
-export const Home = (props: CardProps): JSX.Element => {
-    const {index, active} = props;
+export const Home = (): JSX.Element => {
     const [animate, readyToAnimate] = useState(false);
 
     useEffect(() => {
@@ -13,7 +11,7 @@ export const Home = (props: CardProps): JSX.Element => {
 
 
     return (<div className={`w-full h-full rounded-[32px] p-4 flex flex-col items-center justify-center border-[16px] bg-yellow-300  border-yellow-400 `}>
-            <img className={`transition-all animate-appear anime-forward mb-16 animation-delay-1000 duration-[800ms] ease-out pointer-events-none w-56 rounded-[128px] border-yellow-400 ${animate ? "opacity-1 border-[16px]" : "opacity-0 border-[0px]"}`} src={memoji}/>
+            <img alt="My memoji" className={`transition-all animate-appear anime-forward mb-16 animation-delay-1000 duration-[800ms] ease-out pointer-events-none w-56 rounded-[128px] border-yellow-400 ${animate ? "opacity-1 border-[16px]" : "opacity-0 border-[0px]"}`} src={memoji}/>
             <Chats className="absolute inset-0 m-auto h-fit w-fit" />
             <div className="absolute animate-appear transition-all anime-forward opacity-0 animation-delay-ntmy w-fit h-fit bottom-8 text-white text-xs m-auto left-0 right-0">
                 <div className="transition-all animation-delay-ntmy animate-side-to-side text-xl origin-center">
@@ -28,8 +26,6 @@ const Chats = (props: {className:string}) => {
     const chats = [
         "Bonjour 👋", "I am Aditya 🌿", "It's nice to meet you! 🤝"
     ]
-
-    const [currentChatIndex, setCurrentChatIndex] = useState(-1);
 
     return (
         <div className={props.className}>

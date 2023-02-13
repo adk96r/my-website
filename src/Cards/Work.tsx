@@ -1,10 +1,9 @@
 import React from "react";
 import CardProps from ".";
-import { useTransition, animated } from '@react-spring/web'
 
 
 export const Work = (props: CardProps): JSX.Element => {
-    const {index, active} = props;
+    const {active} = props;
     
     return (
     <div className="w-full h-full rounded-[32px] border-[16px] border-zinc-900 overflow-clip text-md">
