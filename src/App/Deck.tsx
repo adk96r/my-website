@@ -5,11 +5,12 @@ import { Work } from "../Cards/Work";
 import { useSprings, animated, interpolate } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
 import React from "react";
+import {isBrowser, isMobile} from 'react-device-detect';
 
 export const to = (i: number) => {
     return {
       x: 0,
-      y: -56 + 24 * (NUM_CARDS - i - 1),
+      y: 24 * (NUM_CARDS - i - 1) - (isMobile ? 56 : 0),
       scale: 0.9 + (0.1 / NUM_CARDS) * (i + 1),
       rot: (i === NUM_CARDS - 1) ? 0 : (0.5 - Math.random()) * 6,
       delay: i * 100,
@@ -98,6 +99,8 @@ export function Deck() {
     );
     return (
       <>
+        {isBrowser && "Browser"}
+        {isMobile && "Mobile"}
         <div className="transition-all animate-appear opacity-0 anime-forward absolute w-full h-full flex justify-center items-center">👋</div>
         {props.map(({ x, rot, scale, y }, i) => (
           <animated.div
