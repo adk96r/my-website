@@ -63,7 +63,7 @@ module.exports = {
             1000: "1000ms",
             bonjour: "2000ms",
             iama: "2500ms",
-            ntmy: "4000ms",
+            ntmy: "3500ms",
             2000: "2000ms",
             3500: "3500ms",
             5500: "5500ms",
