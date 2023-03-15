@@ -48,7 +48,7 @@ export const Work = (props: CardProps): JSX.Element => {
             {/* Links */}
             <div className={`transition-all duration-700 delay-[2000ms] absolute right-4 bottom-8 flex justify-center text-sm font-bold text-center space-x-[12px] text-white ${active?"opacity-1 translate-y-0":"opacity-0 translate-y-4 delay-[500ms]"}`}>                    
                 <div className="z-2 px-4 py-3 bg-black rounded-[12px] transition-all hover:scale-[1.1]">
-                    <a href="https://drive.google.com/uc?id=1lWxTxX3TknMqMAr9XV8oQvKk1ovGC81l&export=download" target={"_blank"} rel={"noreferrer"}>Resume 🔖</a>
+                    <a href="https://drive.google.com/uc?id=1hHUozPwJWUO5nFcWqO6sjNRAK0HDydwj&export=download" target={"_blank"} rel={"noreferrer"}>Resume 🔖</a>
                 </div>
             </div>
             
