@@ -4,7 +4,7 @@ on:
   # this action will error unless run in a pr context
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   # Build current and upload stats.json
