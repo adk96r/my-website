@@ -1,5 +1,10 @@
 "use strict";
 
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+
+// optionally you can also output compressed/gzipped stats. Requires a version >=1.1.0
+const CompressionPlugin = require("compression-webpack-plugin");
+
 const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
@@ -743,6 +748,11 @@ module.exports = function (webpackEnv) {
             },
           },
         }),
+      new CompressionPlugin(),
+      new BundleAnalyzerPlugin({
+        // generate the stats.json file
+        generateStatsFile: true,
+      }),
     ].filter(Boolean),
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
