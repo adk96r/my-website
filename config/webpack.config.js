@@ -752,6 +752,7 @@ module.exports = function (webpackEnv) {
       new BundleAnalyzerPlugin({
         // generate the stats.json file
         generateStatsFile: true,
+        analyzerMode: "disabled",
       }),
     ].filter(Boolean),
     // Turn off performance processing because we utilize
