@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: group-${{ github.ref}}
+  cancel-in-progress: true
+
 jobs:
   # Build current and upload stats.json
   # You may replace this with your own build method. All that
