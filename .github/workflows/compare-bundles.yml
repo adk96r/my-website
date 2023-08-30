@@ -9,25 +9,13 @@ on:
       - main
 
 jobs:
-  check-pr-state:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - name: Check PR state
-        run: |
-          if [ "${{ github.event.pull_request.draft }}" == "true" ]; then
-            echo "PR is in draft sate, exiting workflow"
-            exit 0
-          fi
-
   # Build current and upload stats.json
   # You may replace this with your own build method. All that
   # is required is that the stats.json be an artifact
   build-head:
     name: "Build head"
     runs-on: ubuntu-latest
-    needs: [check-pr-state]
+    if: ${{ github.event.pull_request.draft }} == "false" }}
     permissions:
       contents: read
     steps:
@@ -53,7 +41,7 @@ jobs:
   build-base:
     name: "Build base"
     runs-on: ubuntu-latest
-    needs: [check-pr-state]
+    if: ${{ github.event.pull_request.draft }} == "false" }}
     permissions:
       contents: read
     steps:
