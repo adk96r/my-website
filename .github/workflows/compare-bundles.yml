@@ -15,7 +15,7 @@ jobs:
   build-head:
     name: "Build head"
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.draft }} == "false" }}
+    if: github.event.pull_request.draft == false
     permissions:
       contents: read
     steps:
@@ -41,7 +41,7 @@ jobs:
   build-base:
     name: "Build base"
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.draft }} == "false" }}
+    if: github.event.pull_request.draft == false
     permissions:
       contents: read
     steps:
