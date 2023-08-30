@@ -3,8 +3,8 @@ name: compare-bundles
 on:
   # this action will error unless run in a pr context
   pull_request:
-    #types:
-    #  - ready_for_review
+    types: [opened, synchronize, reopened, ready_for_review]
+
     branches:
       - main
 
