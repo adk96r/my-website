@@ -753,6 +753,8 @@ module.exports = function (webpackEnv) {
         // generate the stats.json file
         generateStatsFile: true,
         analyzerMode: "disabled",
+
+        statsOptions: {},
       }),
     ].filter(Boolean),
     // Turn off performance processing because we utilize

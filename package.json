@@ -69,8 +69,9 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "build": "mode=production node scripts/build.js",
+    "test": "node scripts/test.js",
+    "ch2": "  jq '.assets | map({ (.name): .size }) | add' ./build/stats.json > st.json"
   },
   "eslintConfig": {
     "extends": [
