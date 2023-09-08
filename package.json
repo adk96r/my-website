@@ -71,7 +71,7 @@
     "start": "node scripts/start.js",
     "build": "mode=production node scripts/build.js",
     "test": "node scripts/test.js",
-    "ch2": " jq '{ assets: (.assets | map({name, size})), chunks: (.chunks | map({name, size})) }' ./build/stats.json > st.json"
+    "minify-bundlestats": "jq '{ assets: (.assets | map({name, size})), chunks: (.chunks | map({name, size})) }' ./build/stats.json > bundlestats.json"
   },
   "eslintConfig": {
     "extends": [
@@ -93,7 +93,8 @@
   },
   "devDependencies": {
     "file-loader": "^6.2.0",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "webpack-cli": "^5.1.4"
   },
   "jest": {
     "roots": [
