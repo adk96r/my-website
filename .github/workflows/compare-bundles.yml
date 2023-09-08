@@ -13,18 +13,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  auto-commit:
-    name: "Auto commit"
-    runs-on: "ubuntu-latest"
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v3
-      - run: echo $((RANDOM)) >> random.txt
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          add_options: "random.txt"
-
   # Build current and upload stats.json
   # You may replace this with your own build method. All that
   # is required is that the stats.json be an artifact
@@ -78,16 +66,16 @@ jobs:
   #         path: ./build/stats.json
 
   # # run the action against the stats.json files
-  # compare:
-  #   name: "Compare base & head bundle sizes"
-  #   runs-on: ubuntu-latest
-  #   needs: [build-base, build-head]
-  #   permissions:
-  #     pull-requests: write
-  #   steps:
-  #     - uses: actions/download-artifact@v3
-  #     - uses: github/webpack-bundlesize-compare-action@v1.5.0
-  #       with:
-  #         github-token: ${{ secrets.MEI_TOKEN }}
-  #         current-stats-json-path: ./head-stats/stats.json
-  #         base-stats-json-path: ./base-stats/stats.json
+  compare:
+    name: "Compare base & head bundle sizes"
+    runs-on: ubuntu-latest
+    needs: [build-base, build-head]
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/download-artifact@v3
+      - uses: github/webpack-bundlesize-compare-action@v1.5.0
+        with:
+          github-token: ${{ secrets.MEI_TOKEN }}
+          current-stats-json-path: ./stats-branch.json
+          base-stats-json-path: ./stats-base.json
