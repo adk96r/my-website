@@ -64,6 +64,7 @@ jobs:
   compare:
     name: "Compare base & head bundle sizes"
     runs-on: ubuntu-latest
+    needs: [generate-current-branch-stats, fetch-base-branch-stats]
     permissions:
       pull-requests: write
     steps:
