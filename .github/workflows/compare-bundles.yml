@@ -27,7 +27,7 @@ jobs:
       - name: Upload stats-base.json
         uses: actions/upload-artifact@v3
         with:
-          name: stats
+          name: head-stats
           path: ./stats-base.json
 
       - name: Upload stats-base.json
