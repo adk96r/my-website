@@ -1,0 +1,30 @@
+{
+  "assets": [
+    {
+      "name": "static/js/main.972002ba.js",
+      "size": 100179
+    },
+    {
+      "name": "static/media/memoji.5d832faed5e037e20aa6.jpeg",
+      "size": 30201
+    },
+    {
+      "name": "static/css/main.b6d89c6c.css",
+      "size": 18290
+    },
+    {
+      "name": "index.html",
+      "size": 871
+    },
+    {
+      "name": "asset-manifest.json",
+      "size": 451
+    }
+  ],
+  "chunks": [
+    {
+      "name": null,
+      "size": 1148711
+    }
+  ]
+}
