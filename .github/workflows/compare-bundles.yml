@@ -24,6 +24,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           add_options: "random.txt"
+
   # Build current and upload stats.json
   # You may replace this with your own build method. All that
   # is required is that the stats.json be an artifact
