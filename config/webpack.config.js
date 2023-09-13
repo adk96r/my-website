@@ -35,6 +35,7 @@ const createEnvironmentHash = require("./webpack/persistentCache/createEnvironme
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== "false";
+console.log("----", shouldUseSourceMap);
 
 const reactRefreshRuntimeEntry = require.resolve("react-refresh/runtime");
 const reactRefreshWebpackPluginRuntimeEntry = require.resolve(
@@ -198,11 +199,7 @@ module.exports = function (webpackEnv) {
     mode: isEnvProduction ? "production" : isEnvDevelopment && "development",
     // Stop compilation early in production
     bail: isEnvProduction,
-    devtool: isEnvProduction
-      ? shouldUseSourceMap
-        ? "source-map"
-        : false
-      : isEnvDevelopment && "cheap-module-source-map",
+    devtool: "hidden-source-map",
     // These are the "entry points" to our application.
     // This means they will be the "root" imports that are included in JS bundle.
     entry: paths.appIndexJs,
@@ -756,7 +753,12 @@ module.exports = function (webpackEnv) {
 
         statsOptions: {},
       }),
+      // new webpack.SourceMapDevToolPlugin({
+      //   filename: "aaa.[file].map",
+      //   noSources: true,
+      // }),
     ].filter(Boolean),
+
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
     performance: false,
