@@ -98,6 +98,7 @@ jobs:
       - uses: NejcZdovc/comment-pr@v2
         with:
           file: "comment.md"
+          identifier: "bundle-size-diff-comment"
         env:
           GITHUB_TOKEN: ${{secrets.MEI_TOKEN}}
           OLD: ${{steps.bundle-size-compare.outputs.base_file_string}}
