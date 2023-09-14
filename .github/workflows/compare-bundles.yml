@@ -83,10 +83,14 @@ jobs:
       pr_file_string: "8 kb"
       diff_file_string: "1.15 kb"
       percent: "0.14%"
+    steps:
+      - id: step1
+        run: echo "test=hello"
 
   comment:
     name: "Comment"
     runs-on: ubuntu-latest
+    needs: [bundle-size-compare]
     steps:
       - uses: NejcZdovc/comment-pr@v2
         with:
