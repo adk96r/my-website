@@ -1,6 +1,5 @@
-#### Bundle size diff
+### Bundle size diff
 
-{{OLD}}
-| Old size | New size | Diff |
+| Old size | New size | Diff                     |
 | -------- | -------- | ------------------------ |
-| {OLD} | {NEW} | {DIFF} ({DIFF_PERCENT}%) |
+| {OLD}    | {NEW}    | {DIFF} ({DIFF_PERCENT}%) |
