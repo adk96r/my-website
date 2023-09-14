@@ -77,6 +77,7 @@ jobs:
 
   bundle-size-compare:
     name: "compare bundles and output size difference"
+    runs-on: ubuntu-latest
     outputs:
       base_file_string: "6.85 kb"
       pr_file_string: "8 kb"
