@@ -1,4 +1,4 @@
-name: compare-bundles
+name: 📦 compare-bundles
 
 on:
   # this action will error unless run in a pr context
