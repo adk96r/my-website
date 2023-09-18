@@ -84,9 +84,8 @@ jobs:
         with:
           ref: ${{github.event.pull_request.head.ref}}
 
-      - name: change files
-        run: echo $RANDOM > ./minified-bundle-stats.json
-
+      # - name: change files
+      #   run: echo $RANDOM > ./minified-bundle-stats.json
       - name: commit using autocommit action
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
