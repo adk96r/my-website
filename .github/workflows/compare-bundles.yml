@@ -84,20 +84,22 @@ jobs:
         with:
           ref: ${{github.event.pull_request.head.ref}}
 
-      - name: Get diff
-        id: get-diff
-        uses: NejcZdovc/bundle-size-diff@v1
-        with:
-          base_path: "./bundlestats.json"
-          pr_path: "./bundlestats.json"
+      - name: commit
+        run: echo $RANDOM > random.txt && git add random.txt && git commit -m "udpate random number" && git push
+      # - name: Get diff
+      #   id: get-diff
+      #   uses: NejcZdovc/bundle-size-diff@v1.1.0
+      #   with:
+      #     base_path: "./bundlestats.json"
+      #     pr_path: "./bundlestats.json"
 
-      - uses: NejcZdovc/comment-pr@v2
-        with:
-          file: "comment.md"
-          identifier: "bundle-size-diff-comment"
-        env:
-          GITHUB_TOKEN: ${{secrets.MEI_TOKEN}}
-          OLD: ${{steps.get-diff.outputs.base_file_string}}
-          NEW: ${{steps.get-diff.outputs.pr_file_string}}
-          DIFF: ${{steps.get-diff.outputs.diff_file_string}}
-          DIFF_PERCENT: ${{steps.get-diff.outputs.percent}}
+      # - uses: NejcZdovc/comment-pr@v2
+      #   with:
+      #     file: "comment.md"
+      #     identifier: "bundle-size-diff-comment"
+      #   env:
+      #     GITHUB_TOKEN: ${{secrets.MEI_TOKEN}}
+      #     OLD: ${{steps.get-diff.outputs.base_file_string}}
+      #     NEW: ${{steps.get-diff.outputs.pr_file_string}}
+      #     DIFF: ${{steps.get-diff.outputs.diff_file_string}}
+      #     DIFF_PERCENT: ${{steps.get-diff.outputs.percent}}
