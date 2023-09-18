@@ -4,77 +4,14 @@ on:
   # this action will error unless run in a pr context
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
+    tags:
+      - "re-build"
 
 concurrency:
   group: group-${{ github.ref}}
   cancel-in-progress: true
 
 jobs:
-  # Build current and upload stats.json
-  # You may replace this with your own build method. All that
-  # is required is that the stats.json be an artifact
-  # generate-current-branch-stats:
-  #   name: "Generate bundlestats for current branch"
-  #   runs-on: "ubuntu-latest"
-  #   if: github.event.pull_request.draft == false
-  #   permissions:
-  #     contents: read
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #       with:
-  #         ref: ${{github.event.pull_request.head.ref}}
-
-  #     - name: Install dependencies
-  #       run: npm install
-
-  #     - name: Build
-  #       run: npm run build
-
-  #     - name: Minify stats file
-  #       run: npm run minify-bundlestats
-
-  #     - name: Print minified stats file
-  #       run: less ./bundlestats.json
-
-  #     - name: Upload stats-base.json
-  #       uses: actions/upload-artifact@v3
-  #       with:
-  #         name: head-stats
-  #         path: ./bundlestats.json
-
-  # fetch-base-branch-stats:
-  #   name: "Fetch base branch stats"
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     contents: read
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #       with:
-  #         ref: ${{ github.base_ref }}
-
-  #     - name: Print minified stats file
-  #       run: less ./bundlestats.json
-
-  #     - name: Upload stats.json
-  #       uses: actions/upload-artifact@v3
-  #       with:
-  #         name: base-stats
-  #         path: ./bundlestats.json
-
-  # compare:
-  #   name: "Compare base & head bundle sizes"
-  #   runs-on: ubuntu-latest
-  #   needs: [generate-current-branch-stats, fetch-base-branch-stats]
-  #   permissions:
-  #     pull-requests: write
-  #   steps:
-  #     - uses: actions/download-artifact@v3
-  #     - uses: github/webpack-bundlesize-compare-action@v1.5.0
-  #       with:
-  #         github-token: ${{ secrets.MEI_TOKEN }}
-  #         current-stats-json-path: ./head-stats/bundlestats.json
-  #         base-stats-json-path: ./base-stats/bundlestats.json
-
   comment:
     name: "Comment"
     runs-on: ubuntu-latest
@@ -84,8 +21,9 @@ jobs:
         with:
           ref: ${{github.event.pull_request.head.ref}}
 
-      # - name: change files
-      #   run: echo $RANDOM > ./minified-bundle-stats.json
+      - name: change files
+        run: echo $RANDOM > ./minified-bundle-stats.json
+
       - name: commit using autocommit action
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
@@ -93,21 +31,3 @@ jobs:
           commit_message: "Updating bundle stats"
         # env:
         #   GITHUB_TOKEN: ${{secrets.MEI_TOKEN}}
-
-      # - name: Get diff
-      #   id: get-diff
-      #   uses: NejcZdovc/bundle-size-diff@v1.1.0
-      #   with:
-      #     base_path: "./bundlestats.json"
-      #     pr_path: "./bundlestats.json"
-
-      # - uses: NejcZdovc/comment-pr@v2
-      #   with:
-      #     file: "comment.md"
-      #     identifier: "bundle-size-diff-comment"
-      #   env:
-      #     GITHUB_TOKEN: ${{secrets.MEI_TOKEN}}
-      #     OLD: ${{steps.get-diff.outputs.base_file_string}}
-      #     NEW: ${{steps.get-diff.outputs.pr_file_string}}
-      #     DIFF: ${{steps.get-diff.outputs.diff_file_string}}
-      #     DIFF_PERCENT: ${{steps.get-diff.outputs.percent}}
