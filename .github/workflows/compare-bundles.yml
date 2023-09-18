@@ -84,9 +84,8 @@ jobs:
         with:
           ref: ${{github.event.pull_request.head.ref}}
 
-      - name: commit
-        run: echo $RANDOM > random.txt && git add random.txt && git commit -m "udpate random number" && git push
-
+      # - name: commit
+      #   run: echo $RANDOM > random.txt && git add random.txt && git commit -m "udpate random number" && git push
       - name: commit using autocommit action
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
