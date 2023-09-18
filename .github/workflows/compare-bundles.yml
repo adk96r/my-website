@@ -86,6 +86,15 @@ jobs:
 
       - name: commit
         run: echo $RANDOM > random.txt && git add random.txt && git commit -m "udpate random number" && git push
+
+      - name: commit using autocommit action
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          add_options: "./minified-bundle-stats.json"
+          commit_message: "Updating bundle stats"
+        # env:
+        #   GITHUB_TOKEN: ${{secrets.MEI_TOKEN}}
+
       # - name: Get diff
       #   id: get-diff
       #   uses: NejcZdovc/bundle-size-diff@v1.1.0
