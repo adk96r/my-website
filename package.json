@@ -37,6 +37,7 @@
     "jest": "^27.4.3",
     "jest-resolve": "^27.4.2",
     "jest-watch-typeahead": "^1.0.0",
+    "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.4.5",
     "postcss": "^8.4.4",
     "postcss-flexbugs-fixes": "^5.0.2",
@@ -68,8 +69,9 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js > stats.json",
-    "test": "node scripts/test.js"
+    "build": "mode=production GENERATE_SOURCEMAP=true node scripts/build.js",
+    "minify-bundlestats": "jq '{ assets: [.assets[] | {name, size}], chunks: [.chunks[] | { modules: [.modules[]? | { name, size, modules: [.modules[]? | {name, size}] }] }] }' ./build/stats.json > bundlestats.json",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -91,7 +93,9 @@
   },
   "devDependencies": {
     "file-loader": "^6.2.0",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "webpack-cli": "^5.1.4",
+    "husky": "^8.0.0"
   },
   "jest": {
     "roots": [

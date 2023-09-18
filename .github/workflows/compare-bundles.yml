@@ -1,73 +1,33 @@
-name: compare-bundles
+name: 📦 compare-bundles
 
 on:
   # this action will error unless run in a pr context
   pull_request:
-    branches:
-      - main
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - "package.json"
+
+concurrency:
+  group: group-${{ github.ref}}
+  cancel-in-progress: true
 
 jobs:
-  # Build current and upload stats.json
-  # You may replace this with your own build method. All that
-  # is required is that the stats.json be an artifact
-  build-head:
-    name: "Build head"
+  comment:
+    name: "Comment"
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+
     steps:
       - uses: actions/checkout@v3
         with:
           ref: ${{github.event.pull_request.head.ref}}
 
-      - name: Install dependencies
-        run: npm install
+      - name: change files
+        run: echo $RANDOM > ./minified-bundle-stats.json
 
-      - name: Build
-        run: npm run build
-
-      - name: Upload stats.json
-        uses: actions/upload-artifact@v3
+      - name: commit using autocommit action
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          name: head-stats
-          path: ./stats.json
-
-  # Build base for comparison and upload stats.json
-  # You may replace this with your own build method. All that
-  # is required is that the stats.json be an artifact
-  build-base:
-    name: "Build base"
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.base_ref }}
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
-      - name: Upload stats.json
-        uses: actions/upload-artifact@v3
-        with:
-          name: base-stats
-          path: ./stats.json
-
-  # run the action against the stats.json files
-  compare:
-    name: "Compare base & head bundle sizes"
-    runs-on: ubuntu-latest
-    needs: [build-base, build-head]
-    permissions:
-      pull-requests: write
-    steps:
-      - uses: actions/download-artifact@v3
-      - uses: github/webpack-bundlesize-compare-action@v1.5.0
-        with:
-          github-token: ${{ secrets.MEI_TOKEN }}
-          current-stats-json-path: ./head-stats/stats.json
-          base-stats-json-path: ./base-stats/stats.json
+          add_options: "./minified-bundle-stats.json"
+          commit_message: "Updating bundle stats"
+        # env:
+        #   GITHUB_TOKEN: ${{secrets.MEI_TOKEN}}

@@ -2,7 +2,7 @@
   "assets": [
     {
       "name": "static/js/main.972002ba.js",
-      "size": 100179
+      "size": 337179
     },
     {
       "name": "static/media/memoji.5d832faed5e037e20aa6.jpeg",
@@ -23,8 +23,314 @@
   ],
   "chunks": [
     {
-      "name": null,
-      "size": 1148711
+      "modules": [
+        {
+          "name": "./node_modules/lodash/lodash.js",
+          "size": 540912,
+          "modules": [
+            {
+              "name": "hola",
+              "size": "pish"
+            }
+          ]
+        },
+        {
+          "name": "./node_modules/react-device-detect/dist/lib.js",
+          "size": 34045,
+          "modules": []
+        },
+        {
+          "name": "./node_modules/react-dom/cjs/react-dom.production.min.js",
+          "size": 198230,
+          "modules": []
+        },
+        {
+          "name": "./node_modules/react-dom/client.js",
+          "size": 620,
+          "modules": []
+        },
+        {
+          "name": "./node_modules/react-dom/index.js",
+          "size": 1349,
+          "modules": []
+        },
+        {
+          "name": "./node_modules/react/cjs/react-jsx-runtime.production.min.js",
+          "size": 1076,
+          "modules": []
+        },
+        {
+          "name": "./node_modules/react/cjs/react.production.min.js",
+          "size": 9093,
+          "modules": []
+        },
+        {
+          "name": "./node_modules/react/index.js",
+          "size": 189,
+          "modules": []
+        },
+        {
+          "name": "./node_modules/react/jsx-runtime.js",
+          "size": 213,
+          "modules": []
+        },
+        {
+          "name": "./node_modules/scheduler/cjs/scheduler.production.min.js",
+          "size": 5857,
+          "modules": []
+        },
+        {
+          "name": "./node_modules/scheduler/index.js",
+          "size": 197,
+          "modules": []
+        },
+        {
+          "name": "./node_modules/ua-parser-js/dist/ua-parser.min.js",
+          "size": 23580,
+          "modules": []
+        },
+        {
+          "name": "./src/Cards/memoji.jpeg",
+          "size": 42,
+          "modules": []
+        },
+        {
+          "name": "./src/index.js + 49 modules",
+          "size": 273845,
+          "modules": [
+            {
+              "name": "./src/index.js",
+              "size": 298
+            },
+            {
+              "name": "./src/App/index.jsx",
+              "size": 298
+            },
+            {
+              "name": "./src/index.css",
+              "size": 58
+            },
+            {
+              "name": "./src/App/style.css",
+              "size": 58
+            },
+            {
+              "name": "./src/App/Deck.tsx",
+              "size": 3299
+            },
+            {
+              "name": "./src/Cards/Contact.tsx",
+              "size": 1955
+            },
+            {
+              "name": "./src/Cards/Work.tsx",
+              "size": 3552
+            },
+            {
+              "name": "./src/Cards/Home.tsx",
+              "size": 2724
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js",
+              "size": 409
+            },
+            {
+              "name": "./node_modules/@react-spring/web/dist/react-spring-web.esm.js",
+              "size": 10646
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js",
+              "size": 973
+            },
+            {
+              "name": "./node_modules/@use-gesture/react/dist/use-gesture-react.esm.js",
+              "size": 2594
+            },
+            {
+              "name": "./src/Cards/memoji.jpeg",
+              "size": 42
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js",
+              "size": 86
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js",
+              "size": 762
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js",
+              "size": 495
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js",
+              "size": 210
+            },
+            {
+              "name": "./node_modules/@react-spring/core/dist/react-spring-core.esm.js",
+              "size": 86498
+            },
+            {
+              "name": "./node_modules/@react-spring/shared/dist/react-spring-shared.esm.js",
+              "size": 34384
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/createClass.js",
+              "size": 719
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js",
+              "size": 176
+            },
+            {
+              "name": "./node_modules/@react-spring/animated/dist/react-spring-animated.esm.js",
+              "size": 13391
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/inherits.js",
+              "size": 564
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/createSuper.js",
+              "size": 678
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/defineProperty.js",
+              "size": 344
+            },
+            {
+              "name": "./node_modules/@use-gesture/core/dist/use-gesture-core.esm.js",
+              "size": 15857
+            },
+            {
+              "name": "./node_modules/@use-gesture/core/dist/actions-b1cc53c2.esm.js",
+              "size": 63895
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js",
+              "size": 210
+            },
+            {
+              "name": "./node_modules/@react-spring/rafz/dist/react-spring-rafz.esm.js",
+              "size": 4653
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js",
+              "size": 404
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js",
+              "size": 222
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js",
+              "size": 229
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/isNativeReflectConstruct.js",
+              "size": 368
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js",
+              "size": 237
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js",
+              "size": 417
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js",
+              "size": 191
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/get.js",
+              "size": 551
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js",
+              "size": 1390
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js",
+              "size": 780
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/regeneratorRuntime.js",
+              "size": 13914
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/wrapNativeSuper.js",
+              "size": 1080
+            },
+            {
+              "name": "./node_modules/@use-gesture/core/dist/maths-0ab39ae9.esm.js",
+              "size": 1870
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js",
+              "size": 161
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/iterableToArray.js",
+              "size": 175
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js",
+              "size": 207
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/toPrimitive.js",
+              "size": 453
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/typeof.js",
+              "size": 368
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/superPropBase.js",
+              "size": 268
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/isNativeFunction.js",
+              "size": 118
+            },
+            {
+              "name": "./node_modules/@babel/runtime/helpers/esm/construct.js",
+              "size": 614
+            }
+          ]
+        },
+        {
+          "name": "css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/App/style.css",
+          "size": 27227,
+          "modules": []
+        },
+        {
+          "name": "css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/index.css",
+          "size": 1628,
+          "modules": []
+        },
+        {
+          "name": "webpack/runtime/amd options",
+          "size": 30,
+          "modules": []
+        },
+        {
+          "name": "webpack/runtime/global",
+          "size": 221,
+          "modules": []
+        },
+        {
+          "name": "webpack/runtime/node module decorator",
+          "size": 128,
+          "modules": []
+        },
+        {
+          "name": "webpack/runtime/publicPath",
+          "size": 28,
+          "modules": []
+        }
+      ]
     }
   ]
 }
