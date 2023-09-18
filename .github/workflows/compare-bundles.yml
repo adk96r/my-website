@@ -4,8 +4,8 @@ on:
   # this action will error unless run in a pr context
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
-    tags:
-      - "re-build"
+    paths:
+      - "package.json"
 
 concurrency:
   group: group-${{ github.ref}}
