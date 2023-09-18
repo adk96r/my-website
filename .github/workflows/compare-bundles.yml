@@ -5,7 +5,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
     paths:
-      - "package.json"
+      - "./package.json"
 
 concurrency:
   group: group-${{ github.ref}}
